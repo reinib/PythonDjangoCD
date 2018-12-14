@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Random Word Generator</title>
+    <style media="screen">
+    .container{
+      height: 500px;
+      width: 500px;
+      border: 2px solid purple;
+      margin-left: 468px;
+      text-align: center;
+      margin-top: 75px;
+    }
+    .header{
+      height: 75px;
+      width: 300px;
+      border: 2px solid black;
+      margin-left: 95px;
+      margin-top: 60px;
+    }
+    .num_gen{
+      height: 300px;
+      width: 300px;
+      border: 2px solid black;
+      margin-left: 95px;
+      margin-top: 25px;
+    }
+    .form{
+      margin-top: 60px;
+    }
+    .submit{
+      background-color: blue;
+      color: white;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3>Random Word (attempt #{{ request.session.count }})</h3>
+      </div>
+      <div class="num_gen">
+        <form class="form" action='/random_word/create' method="post">
+          {% csrf_token %}
+          <input type="text" name="" value="{{ request.session.word }}"><br>
+          <input class="submit" type="submit" name="submit" value="Generate">
+        </form>
+        <form class="" action="/random_word/reset" method="post">
+          {% csrf_token %}
+          <input type="submit" name="rest" value="Reset">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

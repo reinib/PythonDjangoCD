@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .container{
+      height: 500px;
+      width: 500px;
+      border: 2px solid purple;
+      margin-top: 50px;
+      margin-left: 400px;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add a new user</h1>
+      <form class="" action='/create' method="post">
+        {% csrf_token %}
+        First name: <br><input type="text" name="first_name" value=""><br><br>
+        Last name: <br><input type="text" name="last_name" value=""><br><br>
+        Email: <br><input type="text" name="email" value=""><br><br>
+        <input type="submit" name="create" value="Create"><br><br>
+        <a href='/'>Go Back</a>
+      </form>
+    </div>
+  </body>
+</html>

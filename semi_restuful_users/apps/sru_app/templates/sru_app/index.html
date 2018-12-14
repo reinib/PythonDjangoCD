@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Users</title>
+    <style media="screen">
+      .container{
+        height: 500px;
+        width: 500px;
+        border: 2px solid purple;
+        margin-top: 50px;
+        margin-left: 400px;
+        text-align: center;
+      }
+      .container table{
+        /* margin-left: 50px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Users</h1>
+      <table>
+        <tr>
+          <th>id</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Created_at</th>
+          <th>Actions</th>
+        </tr>
+      {% for user in users %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td><a href="users/{{ user.id }}">{{ user.first_name }}{{ user.last_name }}</a></td>
+          <td>{{ user.email }}</td>
+          <td> {{ user.created_at }}</td>
+          <td> <a href="users/{{ user.id }}">Show</a> <a href="users/{{ user.id }}/edit">Edit</a> <a href="/users/{{ user.id }}/delete"></a> </td>
+        </tr>
+      {% endfor %}
+      </table>
+      <form class="" action='/new' method="post">
+        {% csrf_token %}
+        <a href='users/new'>Add a new user</a>
+      </form>
+    </div>
+  </body>
+</html>
